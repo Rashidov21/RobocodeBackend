@@ -1,0 +1,100 @@
+{% extends 'base/base.html' %}
+{% block title %}
+<title>Robocode | Rasmlar</title>
+{% endblock %}
+{% block content %}
+<main>
+    <section class="section_lines" style="margin-top:0;">
+            <p>Rasmlar to‘plami</p>
+    </section>
+    <article>
+        <section class="container_lg">
+            <div class="images_container">
+                <div class="images_columns">
+                    <div class="images">
+                        <a>
+                            <img src="/static/images/gallery/gallery1.png">
+                        </a>
+                    </div>
+                    <div class="images">
+                        <a>
+                            <img src="/static/images/gallery/gallery3.png">
+                        </a>
+                    </div>
+                    <div class="images">
+                        <a>
+                            <img src="/static/images/gallery/gallery2.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="images_columns">
+                    <div class="images">
+                        <a>
+                            <img src="/static/images/gallery/gallery2.png">
+                        </a>
+                    </div>
+                    <div class="images">
+                        <a>
+                            <img src="/static/images/gallery/gallery3.png">
+                        </a>
+                    </div>
+                    <div class="images">
+                        <a>
+                            <img src="/static/images/gallery/gallery1.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="images_columns last">
+                    <div class="images">
+                        <a>
+                            <img src="/static/images/gallery/gallery3.png">
+                        </a>
+                    </div>
+                    <div class="images">
+                        <a>
+                            <img src="/static/images/gallery/gallery2.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+    <style type="text/css">
+        .images_container{
+            display: flex;
+        }
+        .images_columns{
+            width:33.333333%;
+        }
+        .images{
+            padding:2.5%;
+        }
+        .images a img{
+            width: 100%;
+            transition-property: transform;
+            transition-duration: 0.5s;
+            transition-timing-function: ease;
+        }
+        .images a img:hover{
+            transform: scale(1.05);
+        }
+        @media only screen and (max-width: 768px) {
+          .images_container{
+            flex-wrap: wrap;
+          }
+          .images_columns{
+            width:50%;
+          }
+          .last{
+            width:100%;
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .last div{
+            width:50%;
+          }
+        }
+
+    </style>
+</main>
+{% endblock %}

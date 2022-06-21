@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block title %}
+	{% endblock %}
+	<meta name="description" content="Robocode IT Academy Andijan - Andijondagi Robototexnika va Dasturlash , Grafik dizayn, Video montaj bo'yicha o'quv kurslari">
+	<meta name="keywords" content="Robocode, Andijan, Robototexnika, dasturlash, andijon, lego, Arduino, Python, Javascript, Vue.js, Django, PostgreSQL, HTML, CSS, bootstrap, Andijon, Vodiy, IT sohasi, dasturlash kurslari">
+	<meta content="Abdukarim Hakimov" name="author">
+	<link rel="shortcut icon" href="/static/images/custom/favicon.svg">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom/custom.css">
+	{% block link %}
+	{% endblock %}
+</head>
+<body>
+	<header>
+		<section class="section_navbar">
+			<div class="container_lg height-100">
+				<nav class="navbar">
+					<div class="navbar_left">
+						<div class="robocode_logo">
+							<a href="{% url 'main:home' %}">
+								<img src="/static/images/mainpage/header/robocode.png" alt="">
+							</a>
+						</div>
+						<div class="navbar_control" onclick="navbarControlr()">
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+						</div>
+					</div>
+					<div class="navbar_right">
+						<ul>
+							<li>
+								<a href="{% url 'main:home' %}">01 Bosh sahifa</a>
+							</li>
+							<li>
+								<a href="{% url 'main:home' %}#courses">02 Kurslar</a>
+							</li>
+							<li>
+								<a href="{% url 'main:home' %}#robocode_gr">03 Biz haqimizda</a>
+							</li>
+							<li>
+								<a href="{% url 'main:gallery' %}">04 Galereya</a>
+							</li>
+							<li>
+								<a href="{% url 'main:home' %}#asks">05 Savollar</a>
+							</li>
+							<li>
+								<a href="{% url 'main:home' %}#connect">06 Aloqa</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</section>
+		{% block header_course %}
+		{% endblock %}
+	</header>
+	{% block content %}
+	{% endblock %}
+	<footer>
+		<article class="footer_article" id="connect">
+			<section class="section_foooter">
+				<div class="container_lg">
+					<nav class="footer_nav">
+						<div class="footer_nav_fields footer_logo_fields">
+							<div class="footer_nav_logo">
+								<a href="{% url 'main:home' %}">
+									<img src="/static/images/mainpage/main/logo_footer.png" alt="">
+								</a>
+							</div>
+							<div class="footer_nav_text">
+								<p>
+									Robocode IT academy o’quv markazi sizga eng zamonaviy o’quv tizimlarini taklif etadi.
+								</p>
+							</div>
+						</div>
+						<div class="footer_nav_fields">
+							<ul>
+								<li>
+									<a>Menyu</a>
+								</li>
+								<li>
+									<a href="{% url 'main:home' %}">Bosh sahifa</a>
+								</li>
+								<li>
+									<a href="{% url 'main:home' %}#courses">Kurslar</a>
+								</li>
+								<li>
+									<a href="{% url 'main:home' %}#robocode_gr">Biz haqimizda</a>
+								</li>
+								<li>
+									<a href="{% url 'main:gallery' %}">
+										Galereya
+									</a>
+								</li>
+								<li>
+									<a href="{% url 'main:home' %}#asks">
+										Savollar
+									</a>
+								</li>
+								<li>
+									<a href="#connect">
+										Aloqa
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer_nav_fields">
+							<ul>
+								<li>
+									<a>Barcha kurslar</a>
+								</li>
+								<li>
+									<a>Lego mindstroms</a>
+								</li>
+								<li>
+									<a>Arduino</a>
+								</li>
+								<li>
+									<a>Web dasturlash (frontend)</a>
+								</li>
+								<li>
+									<a>Web dasturlash (backend)</a>
+								</li>
+								<li>
+									<a>Grafik dizayn</a>
+								</li>
+								<li>
+									<a>Kompyuter fani</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer_nav_fields">
+							<ul>
+								<li>
+									<a>
+										<span>Ma’lumot</span>
+									</a>
+								</li>
+								<li>
+									<a href="https://goo.gl/maps/sy5vBi25ZbkewAb67" target="_blank">
+										<span>
+											<svg viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M12.3264 0C9.15159 0.00368622 6.10794 1.24658 3.86304 3.45603C1.61815 5.66548 0.355321 8.66108 0.351575 11.7857C0.347773 14.3392 1.19523 16.8233 2.76395 18.8571C2.76395 18.8571 3.09053 19.2804 3.14388 19.3414L12.3264 30L21.5132 19.3361C21.5611 19.2793 21.8888 18.8571 21.8888 18.8571L21.8898 18.8539C23.4578 16.821 24.3049 14.338 24.3011 11.7857C24.2974 8.66108 23.0346 5.66548 20.7897 3.45603C18.5448 1.24658 15.5011 0.00368622 12.3264 0ZM12.3264 16.0714C11.4651 16.0714 10.6232 15.8201 9.90714 15.3492C9.19105 14.8782 8.63293 14.2089 8.30335 13.4258C7.97377 12.6427 7.88754 11.781 8.05556 10.9496C8.22358 10.1183 8.6383 9.35462 9.24728 8.75526C9.85626 8.15589 10.6322 7.74771 11.4768 7.58235C12.3215 7.41698 13.1971 7.50185 13.9927 7.82623C14.7884 8.15061 15.4685 8.69992 15.947 9.4047C16.4254 10.1095 16.6808 10.9381 16.6808 11.7857C16.6794 12.9219 16.2201 14.0112 15.4038 14.8146C14.5875 15.618 13.4808 16.07 12.3264 16.0714Z" fill="white"/>
+											</svg>
+										</span>
+										<span>Andijon viloyati, Andijon shahar Buyuk Turon 21, Avtovokzal ortida.</span>
+									</a>
+								</li>
+								<li>
+									<a href="tel:+998 99 899 90 05">
+										<span>
+											<svg
+										    viewBox="0 0 31 30" fill="none"
+										    xmlns="http://www.w3.org/2000/svg">
+											<path d="M23.5992 30.0002C17.436 29.9922 11.5275 27.5559 7.16946 23.2256C2.81141 18.8952 0.359551 13.0242 0.351562 6.90017C0.351563 5.07018 1.08317 3.31514 2.38544 2.02113C3.68771 0.727134 5.45397 0.000171442 7.29566 0.000171442C7.68564 -0.00278026 8.07498 0.0323889 8.45804 0.105171C8.82835 0.159622 9.1924 0.250056 9.54494 0.375171C9.79288 0.461616 10.0138 0.610871 10.1859 0.80818C10.358 1.00549 10.4753 1.24401 10.5262 1.50017L12.5943 10.5002C12.65 10.7445 12.6433 10.9987 12.5748 11.2398C12.5062 11.4809 12.378 11.701 12.2018 11.8802C12.0056 12.0902 11.9905 12.1052 10.1337 13.0652C11.6206 16.3065 14.2295 18.9094 17.4854 20.4002C18.4666 18.5402 18.4817 18.5252 18.693 18.3302C18.8733 18.1551 19.0949 18.0277 19.3375 17.9596C19.5801 17.8915 19.836 17.8848 20.0818 17.9402L29.1394 19.9952C29.3889 20.0527 29.6196 20.1724 29.8097 20.343C29.9999 20.5135 30.1432 20.7294 30.2263 20.9702C30.3537 21.3262 30.4496 21.6926 30.5131 22.0652C30.5738 22.4422 30.6041 22.8234 30.6037 23.2052C30.5758 25.0273 29.8236 26.7646 28.5113 28.0376C27.199 29.3107 25.4331 30.0162 23.5992 30.0002Z" fill="white"/>
+											</svg>
+										</span>
+										<span>+998 99 899 90 05</span>
+									</a>
+								</li>
+								<li>
+									<a href="mailto:robocode.andijan@mail.ru">
+										<span>
+											<svg  viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M3.37663 0H27.5783C29.2422 0 30.5884 1.35 30.5884 3L30.6035 21C30.6035 22.65 29.2422 24 27.5783 24H3.37663C1.71276 24 0.351418 22.65 0.351418 21V3C0.351418 1.35 1.71276 0 3.37663 0ZM3.98167 6.375L14.6758 13.005C15.1598 13.305 15.7951 13.305 16.2791 13.005L26.9733 6.375C27.1249 6.29057 27.2578 6.17649 27.3637 6.03968C27.4696 5.90287 27.5464 5.74617 27.5895 5.57906C27.6326 5.41195 27.6411 5.2379 27.6144 5.06746C27.5877 4.89702 27.5264 4.73372 27.4342 4.58745C27.342 4.44118 27.2208 4.31498 27.078 4.21649C26.9353 4.118 26.7738 4.04927 26.6034 4.01445C26.4331 3.97963 26.2574 3.97945 26.0869 4.01392C25.9165 4.04839 25.7549 4.1168 25.6119 4.215L15.4775 10.5L5.34301 4.215C5.20002 4.1168 5.03841 4.04839 4.86799 4.01392C4.69756 3.97945 4.52185 3.97963 4.35149 4.01445C4.18114 4.04927 4.01968 4.118 3.87688 4.21649C3.73409 4.31498 3.61294 4.44118 3.52075 4.58745C3.42856 4.73372 3.36726 4.89702 3.34056 5.06746C3.31386 5.2379 3.32231 5.41195 3.36539 5.57906C3.40848 5.74617 3.48532 5.90287 3.59125 6.03968C3.69717 6.17649 3.82999 6.29057 3.98167 6.375Z" fill="white"/>
+											</svg>
+										</span>
+										<span>robocode.andijan@mail.ru</span>
+									</a>
+								</li>
+								<li class="f_field_social">
+									<a href="https://t.me/robocode_andijan" target="_blank">
+										<svg  viewBox="0 0 42 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M20.9294 5.44444e-05C15.5968 0.0247327 10.4911 2.14276 6.72924 5.89081C2.96733 9.63886 0.855411 14.7118 0.855469 20C0.855469 25.3043 2.98031 30.3914 6.76255 34.1421C10.5448 37.8929 15.6746 40 21.0235 40C26.3724 40 31.5022 37.8929 35.2845 34.1421C39.0667 30.3914 41.1916 25.3043 41.1916 20C41.1916 14.6957 39.0667 9.60863 35.2845 5.85791C31.5022 2.10719 26.3724 5.44444e-05 21.0235 5.44444e-05C20.9921 -1.81481e-05 20.9608 -1.81481e-05 20.9294 5.44444e-05ZM29.2689 12.04C29.4369 12.0367 29.8084 12.0784 30.0504 12.2734C30.2112 12.4119 30.3138 12.6052 30.3378 12.815C30.3647 12.97 30.3983 13.325 30.3714 13.6017C30.0689 16.765 28.7546 24.4384 28.0857 27.98C27.8033 29.48 27.247 29.9817 26.7075 30.03C25.5378 30.1383 24.6487 29.2633 23.5143 28.5267C21.7395 27.3717 20.7361 26.6534 19.0134 25.5267C17.0218 24.2267 18.3126 23.51 19.447 22.3434C19.7445 22.0367 24.9042 17.3817 25.005 16.96C25.0168 16.9067 25.0285 16.71 24.9109 16.6067C24.7933 16.5034 24.6185 16.5384 24.4924 16.5667C24.3143 16.6067 21.479 18.4667 15.9865 22.1417C15.1798 22.6917 14.4521 22.9584 13.7983 22.9417C13.079 22.9284 11.6941 22.54 10.6639 22.2084C9.4 21.8 8.39664 21.585 8.48403 20.8934C8.52941 20.5334 9.03025 20.165 9.98487 19.7884C15.8639 17.2484 19.7832 15.5734 21.7462 14.765C27.3462 12.455 28.5109 12.0534 29.2689 12.04Z" fill="white"/>
+										</svg>
+									</a>
+									<a href="https://www.youtube.com/results?search_query=robocode" target="_blank">
+										<svg  viewBox="0 0 42 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M24.3912 19.6521L19.6727 17.4688C19.2609 17.2792 18.9227 17.4917 18.9227 17.9437V22.0563C18.9227 22.5083 19.2609 22.7208 19.6727 22.5312L24.3891 20.3479C24.8029 20.1562 24.8029 19.8438 24.3912 19.6521ZM21.0235 0C9.88488 0 0.855469 8.95417 0.855469 20C0.855469 31.0458 9.88488 40 21.0235 40C32.1622 40 41.1916 31.0458 41.1916 20C41.1916 8.95417 32.1622 0 21.0235 0ZM21.0235 28.125C10.7 28.125 10.5193 27.2021 10.5193 20C10.5193 12.7979 10.7 11.875 21.0235 11.875C31.3471 11.875 31.5277 12.7979 31.5277 20C31.5277 27.2021 31.3471 28.125 21.0235 28.125Z" fill="white"/>
+										</svg>
+									</a>
+									<a href="https://www.facebook.com/robocode.andijan/" target="_blank">
+										<svg viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M0.361328 20.1117C0.361328 30.055 7.64368 38.3233 17.1681 40V25.555H12.126V20H17.1681V15.555C17.1681 10.555 20.4168 7.77833 25.0117 7.77833C26.4672 7.77833 28.037 8 29.4924 8.22167V13.3333H26.916C24.4504 13.3333 23.8907 14.555 23.8907 16.1117V20H29.2689L28.3731 25.555H23.8907V40C33.4151 38.3233 40.6975 30.0567 40.6975 20.1117C40.6975 9.05 31.6218 0 20.5294 0C9.43696 0 0.361328 9.05 0.361328 20.1117Z" fill="white"/>
+										</svg>
+									</a>
+									<a href="https://www.instagram.com/robocode.uz/" target="_blank">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M14.829 6.302c-.738-.034-.96-.04-2.829-.04s-2.09.007-2.828.04c-1.899.087-2.783.986-2.87 2.87-.033.738-.041.959-.041 2.828s.008 2.09.041 2.829c.087 1.879.967 2.783 2.87 2.87.737.033.959.041 2.828.041 1.87 0 2.091-.007 2.829-.041 1.899-.086 2.782-.988 2.87-2.87.033-.738.04-.96.04-2.829s-.007-2.09-.04-2.828c-.088-1.883-.973-2.783-2.87-2.87zm-2.829 9.293c-1.985 0-3.595-1.609-3.595-3.595 0-1.985 1.61-3.594 3.595-3.594s3.595 1.609 3.595 3.594c0 1.985-1.61 3.595-3.595 3.595zm3.737-6.491c-.464 0-.84-.376-.84-.84 0-.464.376-.84.84-.84.464 0 .84.376.84.84 0 .463-.376.84-.84.84zm-1.404 2.896c0 1.289-1.045 2.333-2.333 2.333s-2.333-1.044-2.333-2.333c0-1.289 1.045-2.333 2.333-2.333s2.333 1.044 2.333 2.333zm-2.333-12c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.958 14.886c-.115 2.545-1.532 3.955-4.071 4.072-.747.034-.986.042-2.887.042s-2.139-.008-2.886-.042c-2.544-.117-3.955-1.529-4.072-4.072-.034-.746-.042-.985-.042-2.886 0-1.901.008-2.139.042-2.886.117-2.544 1.529-3.955 4.072-4.071.747-.035.985-.043 2.886-.043s2.14.008 2.887.043c2.545.117 3.957 1.532 4.071 4.071.034.747.042.985.042 2.886 0 1.901-.008 2.14-.042 2.886z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+					<hr style="margin-top:8%;">
+					<div class="text-center" style="color:#FFF; font-family:gilroy; font-size:20px; margin-top:3%;">
+						<p>2022 @ Robocode IT Academy</p>
+					</div>
+				</div>
+			</section>
+		</article>
+	</footer>
+	<script src="/static/js/custom/custom.js"></script>
+	{% block js %}
+	{% endblock %}
+</body>
+</html>
