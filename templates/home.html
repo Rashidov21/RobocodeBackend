@@ -88,157 +88,34 @@
             <p>Barcha Kurslar</p>
         </section>
         <section class="section_main_courses" id="courses">
-            <div class="container_sm section_main_courses_container" >
-                <div class="course_blocks">
-                    <div class="course_items">
-                        <div class="course_texts">
-                            <div>
-                                <h1>Lego Mindstroms</h1>
-                                <p>
-                                    9 yoshdan oshgan maktab o’quvchilari va umuman qiziquvchilar uchun Robotexnikaning boshlang’ich kursi... Scratch blokli dasturlash.
-                                </p>
+            <div class="container_sm section_main_courses_container">
+                {% for course in courses %}
+                    <div class="course_blocks">
+                        <div class="course_items">
+                            <div class="course_texts">
+                                <div>
+                                    <h1>{{course.name}}</h1>
+                                    <p>
+                                        {{course.about1|slice:"0:200"|safe}}...
+                                    </p>
+                                </div>
+                                <div>
+                                    <a href="{% url 'main:detail' course.id %}">
+                                        <button>Batafsil</button>
+                                    </a>
+                                </div>
                             </div>
-                            <div>
-                                <a href="detail.html">
-                                    <button>Batafsil</button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="course_img">
-                            <a>
-                                <img src="/static/images/mainpage/main/lego_show.png" alt="lego">
-                            </a>
-                        </div>
-                        <div class="course_mobile">
-                            <p>Lego Mindstroms</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="course_blocks">
-                    <div class="course_items">
-                        <div class="course_texts">
-                            <div>
-                                <h1>Arduino</h1>
-                                <p>
-                                    Arduino mikrokontrolleri dunyo bo’ylab keng tarqalgan bo’lib, u yordamida qilingan loyihalar kundalik hayotimizda keng foydalanilmoqda.
-                                </p>
-                            </div>
-                            <div>
+                            <div class="course_img">
                                 <a>
-                                    <button>Batafsil</button>
+                                    <img src="{{course.img.url}}" alt="{{course.name}}">
                                 </a>
                             </div>
-                        </div>
-                        <div class="course_img">
-                            <a>
-                                <img  src="/static/images/mainpage/main/lego_show.png" alt="">
-                            </a>
-                        </div>
-                        <div class="course_mobile">
-                            <p>Arduino</p>
+                            <div class="course_mobile">
+                                <p>{{course.name}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="course_blocks">
-                    <div class="course_items">
-                        <div class="course_texts">
-                            <div>
-                                <h1>Web dasturlash (frontend)</h1>
-                                <p>
-                                    Ushbu kursda sizga havaskor web - dasturchidan professional faoliyatingizni boshlashingiz mumkin bo’lgan kerakli bilimlarga ega yosh web - dasturchiga aylanishingizga yordam beradi.
-                                </p>
-                            </div>
-                            <div>
-                                <a>
-                                    <button>Batafsil</button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="course_img">
-                            <a>
-                                <img src="/static/images/mainpage/main/lego_show.png" alt="">
-                            </a>
-                        </div>
-                        <div class="course_mobile">
-                            <p>Web dasturlash (frontend)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="course_blocks">
-                    <div class="course_items">
-                        <div class="course_texts">
-                            <div>
-                                <h1>Web dasturlash (backend)</h1>
-                                <p>
-                                    Ushbu kursda sizga havaskor web - dasturchidan professional faoliyatingizni boshlashingiz mumkin bo’lgan kerakli bilimlarga ega yosh web - dasturchiga aylanishingizga yordam beradi.
-                                </p>
-                            </div>
-                            <div>
-                                <a>
-                                    <button>Batafsil</button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="course_img">
-                            <a>
-                                <img src="/static/images/mainpage/main/lego_show.png" alt="">
-                            </a>
-                        </div>
-                        <div class="course_mobile">
-                            <p>Web dasturlash (backend)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="course_blocks">
-                    <div class="course_items">
-                        <div class="course_texts">
-                            <div>
-                                <h1>Grafik dizayn</h1>
-                                <p>
-                                    Hozirgi kunda grafik dizaynerlik kasbi eng talab yuqori bo’lgan kasblardan biri hisoblanib, har bir sohada dizaynerlarga ehtiyoj ortib bormoqda.
-                                </p>
-                            </div>
-                            <div>
-                                <a>
-                                    <button>Batafsil</button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="course_img">
-                            <a>
-                                <img  src="/static/images/mainpage/main/lego_show.png" alt="">
-                            </a>
-                        </div>
-                        <div class="course_mobile">
-                            <p>Grafik dizayn</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="course_blocks">
-                    <div class="course_items">
-                        <div class="course_texts">
-                            <div>
-                                <h1>Kompyuter fani</h1>
-                                <p>
-                                    Bu kursda siz kompyuter va uning texnologiyalaridan kundalik hayotda bemalol foydalanishni organasiz. Ushbu kurs dasturlash kursiga tayyorlov kursi ham hisoblanadi.
-                                </p>
-                            </div>
-                            <div>
-                                <a>
-                                    <button>Batafsil</button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="course_img">
-                            <a>
-                                <img src="/static/images/mainpage/main/lego_show.png" alt="">
-                            </a>
-                        </div>
-                        <div class="course_mobile">
-                            <p>Kompyuter fani</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </section>
         <section class="section_lines">
@@ -461,7 +338,7 @@
                                 <iframe  title="Sublime yoki VsCode | Qay biri zo'r?  1-Html faylni yaratish" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <h3>Sublime yoki VsCode | Qay biri zo’r ? 1-Html faylni</h3>
                                 <p>Ushbu videoda dasturchi uchun kerak bo’ladigon ishchi muhitini tanlash va 1-Html faylni yaratish o’rgatiladi. ...</p>
-                                <a>Robocode IT Academy </a>
+                                <a href="https://www.youtube.com/results?search_query=robocode" target="_blank">Robocode IT Academy </a>
                             </div>
                             <div class="ifr_all_videos">
                                 <div class="all_ifr_blocks">
@@ -502,7 +379,7 @@
                                 </div>
                             </div>
                             <div class="all_vidoes_btn">
-                                <a>
+                                <a href="https://www.youtube.com/results?search_query=robocode" target="_blank">
                                     <button>Barcha videolar</button>
                                 </a>
                             </div>
@@ -788,22 +665,27 @@
                         </a>
                     </div>
                     <div class="sign_up_form">
-                        <form>
+                        <form method="POST" onsubmit="sendForm(this)">
+                            {% csrf_token %}
                             <div class="form_field">
                                 <label>Ism-Familiya*</label>
-                                <input type="text" name="full_name">
+                                {{form.full_name}}
+                            </div>
+                             <div class="form_field">
+                                <label>Yosh*</label>
+                                {{form.age}}
                             </div>
                             <div class="form_field">
                                 <label>Telefon raqam*</label>
-                                <input type="number" name="number">
+                                {{form.number}}
                             </div>
                             <div class="form_field">
-                                <label>Mavzu*</label>
-                                <input type="text" name="thema">
+                                <label>Kurs*</label>
+                                {{form.course}}
                             </div>
                             <div class="form_field">
                                 <label>Qo’shimcha habar*</label>
-                                <textarea></textarea>
+                                {{form.message}}
                             </div>
                             <div class="form_field">
                                 <input type="submit" value="Yuborish">
@@ -815,6 +697,7 @@
         </section>
     </article>
 </main>
+{% include 'notifications/notification.html' %}
 {% endblock %}
 {% block js %}
 <script src="/static/js/swiper/swiper.js"></script>

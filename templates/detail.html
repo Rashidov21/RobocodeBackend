@@ -1,0 +1,117 @@
+{% extends 'base/base.html' %}
+{% block meta %}
+    {{course.name}}
+{% endblock %}
+{% block title %}
+<title>Robocode | {{course.name}}</title>
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/main/detail/detail.css">
+{% endblock %}
+{% block content %}
+<main>
+    <article class="detail_course">
+        <section class="container_lg">
+            <div class="corse_title">
+                <p>{{course.name}}</p>
+            </div>
+            <div class="course_container">
+                <div class="course_img">
+                    <a>
+                        <img src="{{course.img.url}}" alt="{{course.name}}">
+                    </a>
+                </div>
+                <div class="course_texts">
+                    <div class="course_sub_titile course_text_size2">
+                        <p>{{course.sub_title}}</p>
+                    </div>
+                    <div class="about_course course_text_size1">
+                        <p>
+                            {{course.about1|safe}}
+                        </p>
+                        <p>
+                            {{course.about2|safe}}
+                        </p>
+                    </div>
+                    <div class="sign_up_btn">
+                        <a onclick="openModal()">
+                            <button class="course_text_size1">Bepul sinov darsiga yozilish</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="about_sub_block">
+                <div class="about_sub_title course_text_size2">
+                    <p>{{course.to_students_title}}</p>
+                </div>
+                <div class="about_sub_about course_text_size1">
+                    <p>{{course.to_students_text|safe}}</p>
+                </div>
+                {% if course.course %}
+                    <div class="about_sub_list course_text_size1">
+                        <ul>
+                            {% for list in course.course.all %}
+                                <li>
+                                    <a>{{list.name|safe}}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                <div class="course_date course_text_size1">
+                    <p>
+                        {{course.course_date|safe}}
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div class="modal">
+            <div class="modal_block">
+                <div class="modal_title course_modal_text_size">
+                    <p>Kursga yozilish formasi</p>
+                    <a onclick="closeModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.3997 12L24 2.39966L21.6003 0L12 9.60034L2.39966 0L0 2.39966L9.60034 12L0 21.6003L2.39966 24L12 14.3997L21.6003 24L24 21.6003L14.3997 12Z" fill="white"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="modal_form">
+                    <form onsubmit="sendForm(this); closeModal();">
+                        {% csrf_token %}
+                        <div class="form_fields">
+                            <label>Ism-Familiya*</label>
+                            {{form.full_name}}
+                        </div>
+                        <div class="form_fields">
+                            <label>Yosh*</label>
+                            {{form.age}}
+                        </div>
+                        <div class="form_fields">
+                            <label>Telefon raqam*</label>
+                            {{form.number}}
+                        </div>
+                        <div class="form_fields">
+                            <label>Kurs*</label>
+                            {{form.course}}
+                        </div>
+                        <div class="form_fields">
+                            <label>Qo’shimcha habar*</label>
+                            {{form.message}}
+                        </div>
+                        <div class="form_fields ">
+                            <input type="submit"  value="Yozilish">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </article>
+</main>
+{% include 'notifications/notification.html' %}
+{% endblock %}
+{% block js %}
+<script src="/static/js/main/detail/detail.js"></script>
+<script>
+    window.onload = selected({{course.id}})
+</script>
+{% endblock %}

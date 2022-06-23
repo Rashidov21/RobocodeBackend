@@ -6,3 +6,8 @@ function openModal(){
 function closeModal(){
 	q(".modal").classList = "modal"
 }
+
+function selected(id){
+    let option = q("select").querySelector(`option[value="${id}"]`)
+    option.setAttribute("selected","")
+}

@@ -141,7 +141,7 @@
 	font-size: 15px;
 }
 
-.form_fields input,.form_fields select{
+.form_fields input,.form_fields select,.form_fields textarea{
 	width: 100%;
 	font-size:20px;
 	padding:1.5% 3%;
@@ -165,6 +165,12 @@
 .modal_title a{
 	transform: translateY(-10%);
 	padding:10px 10px 0px 10px;
+}
+
+.form_fields textarea{
+    max-width:100%;
+    min-width:100%;
+    max-height:200px;
 }
 
 /* start max-1300 */
@@ -273,7 +279,7 @@
 	.modal_form{
 		padding:5% 6% 20% 6%;
 	}
-	.form_fields input,.form_fields select{
+	.form_fields input,.form_fields select,.form_fields textarea{
 		padding:2.5% 3.5%;
 	}
 }
@@ -297,7 +303,7 @@
 	.course_modal_text_size{
 		font-size:25px;
 	}
-	.form_fields input,.form_fields select{
+	.form_fields input,.form_fields select, .form_fields textarea{
 		font-size:22px;
 	}
 }
@@ -321,7 +327,7 @@
 	.course_modal_text_size{
 		font-size:28px;
 	}
-	.form_fields input,.form_fields select{
+	.form_fields input,.form_fields select, .form_fields textarea{
 		font-size:24px;
 	}
 }
