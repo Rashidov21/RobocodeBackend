@@ -1,7 +1,4 @@
 {% extends 'base/base.html' %}
-{% block meta %}
-    {{course.name}}
-{% endblock %}
 {% block title %}
 <title>Robocode | {{course.name}}</title>
 {% endblock %}
@@ -23,7 +20,7 @@
                 </div>
                 <div class="course_texts">
                     <div class="course_sub_titile course_text_size2">
-                        <p>{{course.sub_title}}</p>
+                        <p>{{course.sub_title|safe}}</p>
                     </div>
                     <div class="about_course course_text_size1">
                         <p>
@@ -77,26 +74,30 @@
                 </div>
                 <div class="modal_form">
                     <form onsubmit="sendForm(this); closeModal();">
-                        {% csrf_token %}
                         <div class="form_fields">
                             <label>Ism-Familiya*</label>
-                            {{form.full_name}}
+                            <input type="text" name="full_name" maxlength="100" required="" id="id_full_name">
                         </div>
                         <div class="form_fields">
                             <label>Yosh*</label>
-                            {{form.age}}
+                            <input type="number" name="age" required="" id="id_age">
                         </div>
                         <div class="form_fields">
                             <label>Telefon raqam*</label>
-                            {{form.number}}
+                            <input type="number" name="number" placeholder="+998" required="" id="id_number">
                         </div>
                         <div class="form_fields">
                             <label>Kurs*</label>
-                            {{form.course}}
+                            <select name="course" required="" id="id_course">
+                                <option value="" selected="">---------</option>
+                                {% for course in courses %}
+                                    <option value="{{course.id}}">{{course.name}}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                         <div class="form_fields">
                             <label>Qo’shimcha habar*</label>
-                            {{form.message}}
+                            <textarea name="message" cols="" rows="" style="" id="id_message"></textarea>
                         </div>
                         <div class="form_fields ">
                             <input type="submit"  value="Yozilish">

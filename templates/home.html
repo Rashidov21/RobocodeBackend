@@ -8,77 +8,77 @@
 {% endblock %}
 {% block header_course %}
 <section class="section_header_courses">
-			<div class="container_lg">
-				<div class="header_courses_container">
-					<div class="courses_left">
-						<div class="course_number" >
-							<a>
-								<img src="/static/images/mainpage/header/number_first.png" alt="">
-							</a>
-						</div>
-						<div class="course_border_circle">
-							<div class="circle border_circle1"></div>
-						</div>
-						<div class="course_border_circle">
-							<div class="circle border_circle2"></div>
-						</div>
-						<div class="course_border_circle">
-							<div class="circle border_circle3"></div>
-						</div>
-						<div class="course_border_circle">
-							<div class=" border_circle4">
-								<div class="swiper course_swiper">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide course_sliders">
-											<a>
-												<img src="/static/images/mainpage/header/web.png" alt="web dasturlash">
-											</a>
-										</div>
-										<div class="swiper-slide course_sliders">
-											<a>
-												<img src="/static/images/mainpage/header/arduino.png" alt="robota texnika">
-											</a>
-										</div>
-										<div class="swiper-slide course_sliders">
-											<a>
-												<img src="/static/images/mainpage/header/grafik.png" alt="grafik dizayn">
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="courses_right">
-						<div class="course_typer">
-							 <p>
-								 <span
-									 class="typer" id="main"
-									 data-words="Dasturlashni,Robota texnikani,Grafik dizaynni"
-									 data-delay="150" data-deleteDelay="2000">
-									 </span>
-								<span class="cursor" data-owner="main" data-cursorDisplay="|"></span>
-							 </p>
-						</div>
-						<div class="typer_under_text">
-							<p>
-								o‘rganish uchun orzu <br class="typer_br"> emas harakat qil !
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="course_btn">
-					<div>
+    <div class="container_lg">
+        <div class="header_courses_container">
+            <div class="courses_left">
+                <div class="course_number" >
+                    <a>
+                        <img src="/static/images/mainpage/header/number_first.png" alt="">
+                    </a>
+                </div>
+                <div class="course_border_circle">
+                    <div class="circle border_circle1"></div>
+                </div>
+                <div class="course_border_circle">
+                    <div class="circle border_circle2"></div>
+                </div>
+                <div class="course_border_circle">
+                    <div class="circle border_circle3"></div>
+                </div>
+                <div class="course_border_circle">
+                    <div class=" border_circle4">
+                        <div class="swiper course_swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide course_sliders">
+                                    <a>
+                                        <img src="/static/images/mainpage/header/web.png" alt="web dasturlash">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide course_sliders">
+                                    <a>
+                                        <img src="/static/images/mainpage/header/arduino.png" alt="robota texnika">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide course_sliders">
+                                    <a>
+                                        <img src="/static/images/mainpage/header/grafik.png" alt="grafik dizayn">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="courses_right">
+                <div class="course_typer">
+                     <p>
+                         <span
+                             class="typer" id="main"
+                             data-words="Dasturlashni,Robota texnikani,Grafik dizaynni"
+                             data-delay="150" data-deleteDelay="2000">
+                             </span>
+                        <span class="cursor" data-owner="main" data-cursorDisplay="|"></span>
+                     </p>
+                </div>
+                <div class="typer_under_text">
+                    <p>
+                        o‘rganish uchun orzu <br class="typer_br"> emas harakat qil !
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="course_btn">
+            <div>
 
-					</div>
-					<div>
-						<a>
-							<button>Bepul sinov darsiga yozilish</button>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
+            </div>
+            <div>
+                <a href="#free_course">
+                    <button>Bepul sinov darsiga yozilish</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
 {% block content %}
 <main>
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="course_img">
-                                <a>
+                                <a href="{% url 'main:detail' course.id %}">
                                     <img src="{{course.img.url}}" alt="{{course.name}}">
                                 </a>
                             </div>
@@ -652,7 +652,7 @@
                 </div>
             </div>
         </section>
-        <section class="section_lines">
+        <section class="section_lines" id="free_course">
                 <img src="/static/images/mainpage/main/number_six.png" alt="1">
                 <p class="text-center">Bepul darsga yoziling</p>
         </section>
@@ -666,26 +666,30 @@
                     </div>
                     <div class="sign_up_form">
                         <form method="POST" onsubmit="sendForm(this)">
-                            {% csrf_token %}
                             <div class="form_field">
                                 <label>Ism-Familiya*</label>
-                                {{form.full_name}}
+                                <input type="text" name="full_name" maxlength="100" required="" id="id_full_name">
                             </div>
                              <div class="form_field">
                                 <label>Yosh*</label>
-                                {{form.age}}
+                                <input type="number" name="age" required="" id="id_age">
                             </div>
                             <div class="form_field">
                                 <label>Telefon raqam*</label>
-                                {{form.number}}
+                                <input type="number" name="number" placeholder="+998" required="" id="id_number">
                             </div>
                             <div class="form_field">
                                 <label>Kurs*</label>
-                                {{form.course}}
+                                <select name="course" required="" id="id_course">
+                                      <option value="" selected="">---------</option>
+                                      {% for course in courses %}
+                                        <option value="{{course.id}}">{{course.name}}</option>
+                                      {% endfor %}
+                                </select>
                             </div>
                             <div class="form_field">
                                 <label>Qo’shimcha habar*</label>
-                                {{form.message}}
+                                <textarea name="message" cols="" rows="" style="" id="id_message"></textarea>
                             </div>
                             <div class="form_field">
                                 <input type="submit" value="Yuborish">

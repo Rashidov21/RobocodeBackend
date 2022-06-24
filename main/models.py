@@ -29,7 +29,7 @@ class CourseList(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.name
+        return self.name[0:20]
 
 
 class CourseUser(models.Model):

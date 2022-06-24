@@ -71,33 +71,29 @@ async function sendForm(e){
     event.preventDefault();
     let loader = q(".loader_form")
     let alert = q(".alert_block")
-    try{
-        loader.style = "display:flex;"
-        let formData = new URLSearchParams(Array.from(new FormData(e))).toString()
-        let response = await fetch('/register/', {
-              headers: {'Content-type': 'application/x-www-form-urlencoded'},
-              method: 'POST',
-              body: formData
-        })
-        let responseObj = await response.json()
-        loader.style = "display:none;"
-        alert.style = "display:flex;"
-        if(responseObj.status == 200){
-            alert.querySelector(".alert_text").innerHTML = "<p>Muvofaqiyatlik yuborildi siz bialn aloqaga chiqamiz!!!</p>"
-        }
-        else if(responseObj.status == 500){
-            alert.querySelector(".alert_text").innerHTML = "<p>Maydonlarni to'ldirishda hatolik bor qayta urinib ko'rin!!!</p>"
-        }
-        else{
-            alert.querySelector(".alert_text").innerHTML = "<p>Nimadur hato ketdi iltimos boshqatdan urinib ko'rin</p>"
-        }
-        setTimeout(function(){
-            alert.style = "display:none;"
+    loader.style = "display:flex;"
+    let formData = new URLSearchParams(Array.from(new FormData(e))).toString()
+    let response = await fetch('/register/', {
+          headers: {'Content-type': 'application/x-www-form-urlencoded'},
+          method: 'POST',
+          body: formData
+    })
+    let responseObj = await response.json()
+    if(responseObj.status == 200){
+        alert.querySelector(".alert_text").innerHTML = "<p>Muvofaqiyatlik yuborildi siz bialn aloqaga chiqamiz!!!</p>"
+    }
+    else if(responseObj.status == 500){
+        alert.querySelector(".alert_text").innerHTML = "<p>Maydonlarni to'ldirishda hatolik bor qayta urinib ko'rin!!!</p>"
+    }
+    else{
+        alert.querySelector(".alert_text").innerHTML = "<p>Nimadur hato ketdi iltimos boshqatdan urinib ko'rin</p>"
+    }
+    setTimeout(function(){
+        alert.style = "display:none;"
         }, 3500)
-    }
-    catch (err) {
-        console.log(err)
-    }
+    loader.style = "display:none;"
+    alert.style = "display:flex;"
+
     e.querySelectorAll("input").forEach(function(e,index){
         if(e.type !== "submit"){
             e.value = ""
