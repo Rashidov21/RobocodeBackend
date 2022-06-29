@@ -171,6 +171,10 @@ let members_swiper = new Swiper(".members_swiper",{
           el: ".swiper-pagination",
           clickable: true,
   },
+  autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+  },
 })
 /* end main course animations */
 function asks(e){

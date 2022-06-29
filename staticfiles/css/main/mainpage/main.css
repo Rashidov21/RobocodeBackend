@@ -241,6 +241,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding-right: 5%;
 }
 
 .course_texts h1{
@@ -289,8 +290,6 @@
 	font-weight: bolder;
 	display: none;
 }
-
-
 
 .groups{
 	display: flex;
@@ -860,6 +859,10 @@
 	font-size:20px;
 }
 
+.course_texts a button{
+	margin-top:10%;
+}
+
 /* sart max-1300 */
 @media(max-width: 1300px){
 	.header_courses_container,.course_btn{
@@ -1144,7 +1147,9 @@
 	}
 	.course_texts{
 		text-align: center;
+		padding-right: 0%;
 	}
+
 	.course_texts a button{
 		font-size:18px;
 		margin-top: 5%;
@@ -1174,6 +1179,7 @@
 		height: auto;
 		max-width:500px;
 		margin:auto;
+		margin-bottom:15px;
 	}
 	.course_texts div:nth-child(2){
 		margin-top:0px;
@@ -1416,6 +1422,11 @@
 	}
 	.rbx_about_member p:nth-child(2){
 		font-size:18px;
+	}
+	.course_btn a button{
+		display: inline-block !important;
+		width: auto !important;
+		padding:13px 30px !important;
 	}
 }
 /* end max-668 */
