@@ -106,13 +106,13 @@
                                     </p>
                                 </div>
                                 <div>
-                                    <a href="{% url 'main:detail' course.id %}">
+                                    <a href="{% url 'main:detail' course.slug %}">
                                         <button>Batafsil</button>
                                     </a>
                                 </div>
                             </div>
                             <div class="course_img">
-                                <a href="{% url 'main:detail' course.id %}">
+                                <a href="{% url 'main:detail' course.slug %}">
                                     <img src="{{course.img.url}}" alt="{{course.name}}">
                                 </a>
                             </div>
@@ -311,7 +311,7 @@
         </section>
         <section class="section_lines">
                 <img src="/static/images/mainpage/main/number_four.png" alt="1">
-                <p class="text-center">Rasim va videolar <br> to‘plami</p>
+                <p class="text-center">Rasm va videolar <br> to‘plami</p>
         </section>
         <section class="section_gallery" id="gallery">
             <div class="gallery_container">

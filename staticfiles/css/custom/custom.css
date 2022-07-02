@@ -731,9 +731,10 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* start min-1900 */
 @media(min-width:1900px){
+    /*
   .container_lg{max-width: 1750px;}
   .container_md{max-width: 1600px;}
-  .container_sm{max-width: 1420px;}  
+  .container_sm{max-width: 1420px;} */
   .section_navbar{
     height:100px;
   }

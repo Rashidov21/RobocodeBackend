@@ -12,9 +12,9 @@ def gallery(request):
     return render(request, 'gallery.html')
 
 
-def detail(request, course_id):
+def detail(request, slug):
     context = {
-        "course": Course.objects.get(id=course_id),
+        "course": Course.objects.get(slug=slug),
     }
     return render(request, 'detail.html', context)
 
