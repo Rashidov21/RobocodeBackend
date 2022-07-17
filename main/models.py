@@ -45,3 +45,18 @@ class CourseUser(models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+class Videos(models.Model):
+    title = models.CharField(max_length=200)
+    about = RichTextField(blank=True)
+    url = models.URLField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['-date']
+        verbose_name = "Video"
+        verbose_name_plural = "Videos"

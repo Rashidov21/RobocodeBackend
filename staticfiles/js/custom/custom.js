@@ -25,6 +25,7 @@ var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
 var currentScrollPos = window.pageYOffset;
   if(Math.ceil(window.scrollY) >= 500){
+    q(".cubic").classList = "cubic open_cubic"
     if (prevScrollpos > currentScrollPos) {
     document.querySelector(".section_navbar").classList = "section_navbar for_navbar_section2"
   } else {
@@ -33,6 +34,7 @@ var currentScrollPos = window.pageYOffset;
   prevScrollpos = currentScrollPos;
   }
   else{
+    q(".cubic").className = "cubic"
     document.querySelector(".section_navbar").classList = "section_navbar"
   }
 }

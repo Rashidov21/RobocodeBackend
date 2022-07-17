@@ -324,9 +324,7 @@ body::-webkit-scrollbar-thumb:hover {
   transform: rotate(0deg) !important;
 }
 
-.open_modal{
-  transform: translateY(0%) !important;
-}
+
 
 .loader_form{
     position: fixed;
@@ -462,6 +460,40 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert_close svg{
     width:25px;
+}
+
+.cubic{
+  position: fixed;
+  width:45px;
+  height: 45px;
+  right: 50px;
+  bottom:50px;
+  z-index: -1;
+  background-color: #34ff2f;
+  border-radius:10px;
+  transform: translateY(70%);
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition: 0.8s ease;
+  
+}
+
+.cubic a{
+  padding-top:10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; 
+  color:#000;
+  font-size:30px;
+}
+
+
+.open_cubic{
+  z-index: 1;
+  transform: translateY(0%);
+  opacity: 1;
 }
 
 /* start max-1300 */

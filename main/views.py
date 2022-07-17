@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Course
+from .models import Course, Videos
 from .forms import CourseUserForm
 from django.views.decorators.csrf import csrf_exempt
 
+
 def home(request):
-    return render(request, 'home.html')
+    context = {
+        "videos": Videos.objects.all()
+    }
+    return render(request, 'home.html', context)
 
 
 def gallery(request):

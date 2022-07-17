@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/static/css/main/mainpage/main.css">
 {% endblock %}
 {% block header_course %}
-<section class="section_header_courses">
+<section class="section_header_courses" id="header">
     <div class="container_lg">
         <div class="header_courses_container">
             <div class="courses_left">
@@ -253,48 +253,80 @@
                                     <div class="swiper-slide members_slides">
                                         <div class="rbx_members_img">
                                             <a>
-                                                <img src="/static/images/mainpage/main/members.png" alt="members">
+                                                <img src="/static/images/mainpage/main/web.png" alt="members">
                                             </a>
                                         </div>
                                         <div class="rbx_about_member">
-                                            <p>Abdulaziz Yakubov</p>
-                                            <p>Robocode IT Academy asoschisi. Bosh direktor. Node js developer</p>
+                                            <p>Abdurahmon Rashidov</p>
+                                            <p>Fullstack web dasturlash kursi mentori. Phynthon web-devrloper.</p>
                                         </div>
                                         <div class="rbx_member_logo">
                                             <a>
-                                                <img src="/static/images/mainpage/main/member_logo.png" alt="members">
+                                                <img src="/static/images/mainpage/main/python.png" alt="members">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="swiper-slide members_slides">
                                         <div class="rbx_members_img">
                                             <a>
-                                                <img src="/static/images/mainpage/main/members.png" alt="members">
+                                                <img src="/static/images/mainpage/main/admin.png" alt="members">
                                             </a>
                                         </div>
                                         <div class="rbx_about_member">
-                                            <p>Ibrohimjon Rashidov</p>
-                                            <p>Python kursi mentori backend developer</p>
+                                            <p>Ro’ziboy Sattimjonov</p>
+                                            <p>Sotuv bo’limi boshlig’i. Kompyuter injeneri.</p>
                                         </div>
                                         <div class="rbx_member_logo">
                                             <a>
-                                                <img src="/static/images/mainpage/main/member_logo.png" alt="members">
+                                                <img src="/static/images/mainpage/main/users.png" alt="members">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="swiper-slide members_slides">
                                         <div class="rbx_members_img">
                                             <a>
-                                                <img src="/static/images/mainpage/main/members.png" alt="members">
+                                                <img src="/static/images/mainpage/main/arduino.png" alt="members">
                                             </a>
                                         </div>
                                         <div class="rbx_about_member">
-                                            <p>Kozimbek Kamalov</p>
-                                            <p>Arduino - Junior robotatexnika kursi mentori robotatexnik</p>
+                                            <p>Kozimbek Kamolov</p>
+                                            <p>Arduino - Junior robototexnika kursi mentori. Robototexnik</p>
                                         </div>
                                         <div class="rbx_member_logo">
                                             <a>
-                                                <img src="/static/images/mainpage/main/member_logo.png" alt="members">
+                                                <img src="/static/images/mainpage/main/robot.png" alt="members">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide members_slides">
+                                        <div class="rbx_members_img">
+                                            <a>
+                                                <img src="/static/images/mainpage/main/admin.png" alt="members">
+                                            </a>
+                                        </div>
+                                        <div class="rbx_about_member">
+                                            <p>Qosimjon Mamadiyorov</p>
+                                            <p>Injener, bolalar uchun dasturlash kursi mentori. Robototexnik</p>
+                                        </div>
+                                        <div class="rbx_member_logo">
+                                            <a>
+                                                <img src="/static/images/mainpage/main/robot.png" alt="members">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide members_slides">
+                                        <div class="rbx_members_img">
+                                            <a>
+                                                <img src="/static/images/mainpage/main/smm.png" alt="members">
+                                            </a>
+                                        </div>
+                                        <div class="rbx_about_member">
+                                            <p>Jasurbek Abdurazzaqov</p>
+                                            <p>Robocode IT academy menedjeri</p>
+                                        </div>
+                                        <div class="rbx_member_logo">
+                                            <a>
+                                                <img src="/static/images/mainpage/main/users.png" alt="members">
                                             </a>
                                         </div>
                                     </div>
@@ -340,49 +372,26 @@
                     <div class="phone" style="transform:translateX(50%); position: relative;">
                         <img class="phones" src="/static/images/mainpage/main/last_videos.png">
                         <div class="last_videos_block">
-                            <div class="ifr_last_video_blocktop">
-                                <iframe  title="Sublime yoki VsCode | Qay biri zo'r?  1-Html faylni yaratish" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <h3>Sublime yoki VsCode | Qay biri zo’r ? 1-Html faylni</h3>
-                                <p>Ushbu videoda dasturchi uchun kerak bo’ladigon ishchi muhitini tanlash va 1-Html faylni yaratish o’rgatiladi. ...</p>
-                                <a href="https://www.youtube.com/results?search_query=robocode" target="_blank">Robocode IT Academy </a>
-                            </div>
+                           {% for video in videos|slice:":1" %}
+                                <div class="ifr_last_video_blocktop">
+                                    <iframe src="{{video.url}}" title="{{video.title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <h3>{{video.title|slice:"60"}}...</h3>
+                                    <p>{{video.about|safe|slice:"120"}}...</p>
+                                    <a href="https://www.youtube.com/results?search_query=robocode" target="_blank">Robocode IT Academy </a>
+                                </div>
+                            {% endfor %} 
                             <div class="ifr_all_videos">
-                                <div class="all_ifr_blocks">
-                                    <div class="all_ifr_iframe">
-                                        <iframe  title="Sublime yoki VsCode | Qay biri zo'r?  1-Html faylni yaratish" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                {% for video in videos|slice:"1:" %} 
+                                    <div class="all_ifr_blocks">
+                                        <div class="all_ifr_iframe">
+                                            <iframe src="{{video.url}}" title="{{video.title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="all_ifr_text">
+                                            <p>{{video.title|slice:"40"}}...</p>
+                                            <a href="{{video.url}}" target="_blank">Batafsil</a>
+                                        </div>
                                     </div>
-                                    <div class="all_ifr_text">
-                                        <p>Sublime yoki VsCode | Qay biri zo’r ? 1-Html faylni</p>
-                                        <a>Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="all_ifr_blocks">
-                                    <div class="all_ifr_iframe">
-                                        <iframe  title="Sublime yoki VsCode | Qay biri zo'r?  1-Html faylni yaratish" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="all_ifr_text">
-                                        <p>Sublime yoki VsCode | Qay biri zo’r ? 1-Html faylni</p>
-                                        <a>Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="all_ifr_blocks">
-                                    <div class="all_ifr_iframe">
-                                        <iframe  title="Sublime yoki VsCode | Qay biri zo'r?  1-Html faylni yaratish" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="all_ifr_text">
-                                        <p>Sublime yoki VsCode | Qay biri zo’r ? 1-Html faylni</p>
-                                        <a>Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="all_ifr_blocks">
-                                    <div class="all_ifr_iframe">
-                                        <iframe  title="Sublime yoki VsCode | Qay biri zo'r?  1-Html faylni yaratish" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="all_ifr_text">
-                                        <p>Sublime yoki VsCode | Qay biri zo’r ? 1-Html faylni</p>
-                                        <a>Batafsil</a>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                             <div class="all_vidoes_btn">
                                 <a href="https://www.youtube.com/results?search_query=robocode" target="_blank">
