@@ -5,6 +5,7 @@ from .forms import CourseUserForm
 from django.views.decorators.csrf import csrf_exempt
 
 
+
 def home(request):
     context = {
         "videos": Videos.objects.all()
