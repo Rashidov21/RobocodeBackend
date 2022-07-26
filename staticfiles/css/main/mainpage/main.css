@@ -378,7 +378,7 @@
 }
 
 .phone img{
-	width: 102%;
+	width: 100%;
 }
 
 .dots img{
@@ -1882,6 +1882,45 @@
 	}
 	.f_field_social a svg{
 		width: 38px !important;
+	}
+	.dots{
+		width:62.5%;
+	}
+	.dots img{
+		transform:scaleY(0.8);
+	}
+	.phone{
+		width:37.5%;
+	}
+	.differences:nth-child(2n+0) .dots img{
+		transform: translateX(-5%) scaleY(0.8);
+	}
+	.rb_group_dots{
+		width:85%;
+
+	}
+	.rb_group_tablet{
+		width: 65%;
+		margin-left: -30%;
+		position: relative;
+	}
+	.gallery_dots{
+		width:45%;
+		margin-top:-10%;
+	}
+	.gallery_notebook{
+		width:80%;
+		margin-left:-15%;
+		z-index: 1;
+	}
+	.gallery_dots img{
+		transform: scaleY(0.7);
+	}
+	.sign_up_form{
+		width: 55%;
+	}
+	.sign_up_img{
+		width:45%;
 	}
 }
 /* end min-1650 */
